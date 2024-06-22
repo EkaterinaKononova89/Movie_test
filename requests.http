@@ -1,0 +1,80 @@
+### Эндпоинт для добавления одного фильма
+POST http://localhost:8080/movie-api/add-one
+Content-Type: application/json
+
+{
+  "name": "film",
+  "description": "some description",
+  "type": "SERIES",
+  "genre": "drama",
+  "releaseDate": "09/01/2024"
+}
+
+### Эндпоинт для добавления нескольких фильмов
+POST http://localhost:8080/movie-api/add-many
+Content-Type: application/json
+
+[
+  {
+    "name": "new_film2",
+    "description": "some description",
+    "type": "SERIES",
+    "genre": "drama",
+    "releaseDate": "09/01/2024"
+  },
+  {
+    "name": "new_film3",
+    "description": "some description",
+    "type": "SERIES",
+    "genre": "drama",
+    "releaseDate": "09/01/2024"
+  }
+]
+
+### Эндпоинт для добавления нескольких фильмов (частичное добавление, если какие-то фильмы уже есть в БД)
+POST http://localhost:8080/movie-api/add-many
+Content-Type: application/json
+
+[
+  {
+    "name": "new_film3",
+    "description": "some description",
+    "type": "SERIES",
+    "genre": "drama",
+    "releaseDate": "09/01/2024"
+  },
+  {
+    "name": "new_film4",
+    "description": "some description",
+    "type": "SERIES",
+    "genre": "drama",
+    "releaseDate": "09/01/2024"
+  }
+]
+
+### Эндпоинт для поиска фильма по году выхода
+GET http://localhost:8080/movie-api/get-by-date?date=1999
+
+### Эндпоинт для поиска фильма по году выхода (нет в БД)
+GET http://localhost:8080/movie-api/get-by-date?date=1991
+
+### Эндпоинт для поиска фильма по имени
+GET http://localhost:8080/movie-api/get-by-name?name=Friends
+
+### Эндпоинт для поиска фильма по имени (нет в БД)
+GET http://localhost:8080/movie-api/get-by-name?name=any_film
+
+### Эндпоинт для поиска фильма по типу
+GET http://localhost:8080/movie-api/get-by-type?type=SERIES
+
+### Эндпоинт для поиска фильма по типу (нет в БД)
+GET http://localhost:8080/movie-api/get-by-type?type=SHORT_FILM
+
+### Актуатор
+GET http://localhost:8080/actuator/health
+
+### Open API
+GET http://localhost:8080/api-docs
+
+### Swagger
+GET http://localhost:8080/swagger-ui/index.html
